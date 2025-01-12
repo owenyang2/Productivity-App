@@ -14,7 +14,7 @@
 body {
     width: 100%;
     margin: auto;
-    background-color: #c5c5d3;
+    background-color: #b4b4da;
 }
 
 main {
@@ -36,7 +36,6 @@ main {
     margin-left: 0.5vw;
     font-size: large;
 
-    font-family: Tahoma;
     color: white;
     background-color: rgb(207, 160, 31);
     border-radius: 10%;
@@ -52,7 +51,6 @@ main {
     text-align: left;
     font-weight: bold;
     font-size: 2rem;
-    font-family: Tahoma;
     width: 65%;
     
     display: inline-block;
@@ -65,6 +63,11 @@ main {
     text-decoration: none;
 }
 
+.remove-bold {
+    font-weight: normal;
+}
+
+/* Responsive Design*/
 @media only screen and (max-width: 1100px) {
     .nav-link {
         font-size: 1rem;
@@ -82,5 +85,6 @@ main {
 
 
 * {
+    font-family: Tahoma;
     /* border: blue solid 1px; */
 }

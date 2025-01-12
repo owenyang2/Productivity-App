@@ -1,12 +1,14 @@
 const timerText = document.getElementById("timer");
 const timerActionButton = document.getElementById("timer-action-button");
 const timerResetButton = document.getElementById("timer-reset-button");
+const timerSkipButton = document.getElementById("timer-skip-button");
+const timerModeText = document.getElementById("timer-mode");
 
 let timerPresets = {
     Pomodoro: 
     {
-        min: 25,
-        sec: 0
+        min: 0,
+        sec: 5
     },
 
     Break:
@@ -19,36 +21,51 @@ let timerPresets = {
 let currTime;
 let currMode;
 let paused = true;
+let activeID;
 
 function updateTimerText()
 {
     timerText.innerText = currTime.sec < 10 ? `${currTime.min}:0${currTime.sec}` : `${currTime.min}:${currTime.sec}`;
 }
 
-function decrementTimer()
+function decrementTimer(id)
 {
-    if (paused)
+    console.log(activeID, id);
+    if (paused || activeID !== id)
     {
         return;
     }
 
-    currTime.sec--;
-
-    if (currTime.sec < 0)
+    if (currTime.sec === 0)
     {
+        if (currTime.min === 0)
+        {
+            endTimer();
+            return;
+        }    
+
         currTime.min--;
         currTime.sec = 59;
     }
+    else
+    {
+        currTime.sec--;
+    }
 
     updateTimerText();
-    setTimeout(decrementTimer, 1000);
+    setTimeout(() => {
+        decrementTimer(id);
+    }, 1000);
 }
 
 function startTimer()
 {
     paused = false;
     timerActionButton.innerText = "Pause";
-    setTimeout(decrementTimer, 1000);}
+    setTimeout(() => {
+        decrementTimer(++activeID);
+    }, 1000);
+}
 
 function pauseTimer()
 {
@@ -59,13 +76,26 @@ function pauseTimer()
 function resetTimer()
 {
     pauseTimer();
+
+    activeID = 0;
+
     timerActionButton.innerText = "Start";
-    currTime = {...startTime};
+    timerModeText.innerText = currMode;
+
+    currTime = {...timerPresets[currMode]};
+    console.log(currTime);
     updateTimerText();
+}
+
+function endTimer()
+{
+    currMode = currMode === "Pomodoro" ? "Break" : "Pomodoro";
+    resetTimer();
 }
 
 function init()
 {
+    activeID = 0;
     currMode = "Pomodoro";
     currTime = {...timerPresets[currMode]};
     updateTimerText();
@@ -83,5 +113,6 @@ timerActionButton.addEventListener("click", () => {
 });
 
 timerResetButton.addEventListener("click", resetTimer);
+timerSkipButton.addEventListener("click", endTimer);
 
 init();
