@@ -7,8 +7,8 @@ const timerModeText = document.getElementById("timer-mode");
 let timerPresets = {
     Pomodoro: 
     {
-        min: 0,
-        sec: 5
+        min: 25,
+        sec: 0
     },
 
     Break:
