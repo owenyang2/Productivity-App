@@ -1,0 +1,10 @@
+h2 {
+    text-align: center;
+}
+
+.checklist {
+    background-color: black;
+    height: 70vh;
+    width: 30%;
+    margin: auto;
+}
