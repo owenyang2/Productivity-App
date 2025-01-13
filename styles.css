@@ -67,6 +67,18 @@ main {
     font-weight: normal;
 }
 
+.homepage-link a {
+    color: #5469e2;
+    font-size: larger;
+    text-decoration: none;
+    font-weight: bold;
+    text-decoration-line: underline;
+}
+
+.homepage-link {
+    margin-bottom: 10px;
+}
+
 /* Responsive Design*/
 @media only screen and (max-width: 1100px) {
     .nav-link {
@@ -77,14 +89,37 @@ main {
 @media only screen and (max-width: 800px) {
     .nav-link-header {
         font-size: 1.7rem;
+        width: 50%;
     }
     .nav-link {
+        width: 20%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .nav-link {
         font-size: 0.7rem;
+        width: 20%;
+    }
+    
+    .nav-link-header {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .nav-link {
+        font-size: 0.7rem;
+        width: 20%;
+    }
+    
+    .nav-link-header {
+        font-size: 1rem;
     }
 }
 
 
 * {
-    font-family: Tahoma;
+    font-family: Tahoma, sans-serif;
     /* border: blue solid 1px; */
 }
