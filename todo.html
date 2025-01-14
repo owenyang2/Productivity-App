@@ -21,12 +21,16 @@
     <main>
         <div class="todo-body">
             <h2>Todo List</h2>
-            <div class="checklist"></div>
+            <div class="checklist-bg">
+                <div id="checklist" class="checklist">
+            </div>
+            </div>
             <div class="add-item">
-                <label for="add-button">Task Name: <input id="add-button" type="text"></label><br>
-                <button class="add-button">Add</button>
-            </div>    
+                <label for="add-task-input">Task Name: <input id="add-task-input" type="text"></label><br>
+                <button id="task-add-button" class="add-button">Add</button>
+            </div>
         </div>
     </main>
+    <script src="todo-script.js"></script>
 </body>
 </html>
