@@ -45,6 +45,7 @@ h2 {
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     margin-bottom: 5px;
 }
@@ -53,4 +54,8 @@ h2 {
     margin-left: 10px;
     color: black;
     font-size: larger;
+}
+
+.task-item button {
+    margin-right: 10px
 }
